@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterMotor : MonoBehaviour
 {
     [SerializeField] private GameMap _map;
+    [SerializeField] private Transform _view;
 
     private Vector2Int? _targetPosition;
     private ISpeedProvider _speedProvider;
@@ -36,6 +37,12 @@ public class CharacterMotor : MonoBehaviour
         if (!_map.IsTileEmpty(desiredPosition)) return false;
 
         _targetPosition = desiredPosition;
+        if (_view)
+        {
+            Quaternion look = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.y), Vector3.up);
+            _view.rotation = Quaternion.Euler(_view.rotation.eulerAngles.x, look.eulerAngles.y, look.eulerAngles.z);
+        }
+
         return true;
     }
 
