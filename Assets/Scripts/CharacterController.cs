@@ -1,59 +1,54 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace DefaultNamespace
+public class CharacterController : MonoBehaviour
 {
-    public class CharacterController : MonoBehaviour
+    [SerializeField] private CharacterMotor _motor;
+    [SerializeField] private float _bufferTime = 0.2f;
+
+    private float _inputLastUpdatedAt = float.MaxValue;
+    private Vector2Int? _inputBuffer;
+    private Vector2Int? _currentDirection;
+
+    private void Start()
     {
-        [SerializeField] private CharacterMotor _motor;
-        [SerializeField] private float _bufferTime = 0.2f;
+        InputSystem.actions.FindAction("Move").performed += StoreInput;
+        InputSystem.actions.FindAction("Move").canceled += _ => _inputLastUpdatedAt = Time.time;
+    }
 
-        private float _inputLastUpdatedAt = float.MaxValue;
-        private Vector2Int? _inputBuffer;
-        private Vector2Int? _currentDirection;
-
-        private void Start()
+    private void Update()
+    {
+        if (Time.time > _inputLastUpdatedAt + _bufferTime)
         {
-            InputSystem.actions.FindAction("Move").performed += StoreInput;
-            InputSystem.actions.FindAction("Move").canceled += _ => _inputLastUpdatedAt = Time.time;
+            _inputBuffer = null;
         }
 
-        private void Update()
+        if (_inputBuffer.HasValue && !_motor.IsBusy)
         {
-            if (Time.time > _inputLastUpdatedAt + _bufferTime)
+            if (_motor.TryMoveTowards(_inputBuffer.Value))
             {
-                _inputBuffer = null;
+                _currentDirection = _inputBuffer.Value;
             }
-
-            if (_inputBuffer.HasValue && !_motor.IsBusy)
+            else if (_currentDirection.HasValue)
             {
-                if (_motor.TryMoveTowards(_inputBuffer.Value))
-                {
-                    _currentDirection = _inputBuffer.Value;
-                }
-                else if (_currentDirection.HasValue)
-                {
-                    _motor.TryMoveTowards(_currentDirection.Value);
-                }
+                _motor.TryMoveTowards(_currentDirection.Value);
             }
         }
+    }
 
-        private void StoreInput(InputAction.CallbackContext ctx)
+    private void StoreInput(InputAction.CallbackContext ctx)
+    {
+        var rawInput = Vector2Int.RoundToInt(ctx.ReadValue<Vector2>());
+        if (Mathf.Abs(rawInput.x) > Mathf.Abs(rawInput.y))
         {
-            var rawInput = Vector2Int.RoundToInt(ctx.ReadValue<Vector2>());
-            if (Mathf.Abs(rawInput.x) > Mathf.Abs(rawInput.y))
-            {
-                rawInput = new Vector2Int(rawInput.x, 0);
-            }
-            else
-            {
-                rawInput = new Vector2Int(0, rawInput.y); 
-            }
-
-            _inputBuffer = rawInput;
-            _inputLastUpdatedAt = float.MaxValue;
+            rawInput = new Vector2Int(rawInput.x, 0);
         }
+        else
+        {
+            rawInput = new Vector2Int(0, rawInput.y); 
+        }
+
+        _inputBuffer = rawInput;
+        _inputLastUpdatedAt = float.MaxValue;
     }
 }
