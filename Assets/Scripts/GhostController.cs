@@ -1,9 +1,11 @@
+using Interfaces;
 using UnityEngine;
 
 public class GhostController : MonoBehaviour
 {
     [SerializeField] private GameMap _map;
     [SerializeField] private CharacterMotor _motor;
+    [SerializeField] private float _speed;
     
     private CharacterController _player;
     private PathFinder _pathFinder;
@@ -12,6 +14,7 @@ public class GhostController : MonoBehaviour
     {
         _player = FindFirstObjectByType<CharacterController>();
         _pathFinder = new PathFinder(_map);
+        _motor.Setup(new ConstantSpeed(_speed));
     }
     
     private void Update()

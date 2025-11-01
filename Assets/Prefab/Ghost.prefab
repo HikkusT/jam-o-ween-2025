@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GhostController
   _map: {fileID: 0}
   _motor: {fileID: 4417920788909790191}
+  _speed: 2
 --- !u!114 &4417920788909790191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,7 +62,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMotor
   _map: {fileID: 0}
-  _speed: 2
 --- !u!1 &8745798086630941009
 GameObject:
   m_ObjectHideFlags: 0
