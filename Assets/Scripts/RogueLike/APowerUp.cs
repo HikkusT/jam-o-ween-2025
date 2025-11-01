@@ -15,6 +15,6 @@ namespace RogueLike
         public Sprite Image => powerUpImage;
         public string Description => powerUpDescription;
         
-        public abstract void Apply(PlayerStats playerStats);
+        public abstract void Apply(GameObject player);
     }
 }

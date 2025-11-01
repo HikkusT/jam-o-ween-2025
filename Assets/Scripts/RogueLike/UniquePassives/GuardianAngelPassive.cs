@@ -5,11 +5,11 @@ namespace RogueLike.UniquePassives
 {
     public class GuardianAngelPassive : MonoBehaviour
     {
-        private PlayerStats _health;
+        private Health _health;
         
         private void Start()
         {
-            _health = GetComponent<PlayerStats>();
+            _health = GetComponent<Health>();
             _health.OnDeath += AvoidDeath;
         }
 

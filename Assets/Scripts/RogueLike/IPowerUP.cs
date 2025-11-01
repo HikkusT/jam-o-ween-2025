@@ -9,6 +9,6 @@ namespace RogueLike
         Sprite Image { get; }
         string Description { get; }
     
-        void Apply(PlayerStats playerStats);
+        void Apply(GameObject player);
     }
 }
