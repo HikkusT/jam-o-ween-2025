@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 1893315720287155374}
   - component: {fileID: 3116876510725460513}
   - component: {fileID: 515475160014128163}
+  - component: {fileID: 3134345585973232856}
   m_Layer: 0
   m_Name: Pacman
   m_TagString: Untagged
@@ -184,6 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8606267ebc3240538d26690dbbff98b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.CharacterController
+  _playerStats: {fileID: 3134345585973232856}
   _motor: {fileID: 515475160014128163}
   _bufferTime: 100
 --- !u!114 &515475160014128163
@@ -199,7 +201,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.CharacterMotor
   _map: {fileID: 0}
-  _speed: 3
+--- !u!114 &3134345585973232856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248121404389421364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b58de12a2c471294952c7234c39e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerComponents.PlayerStats
+  maxHealth: 5
+  movSpeed: 3.5
+  frenzyDuration: 7
 --- !u!1 &7654861338974248296
 GameObject:
   m_ObjectHideFlags: 0
