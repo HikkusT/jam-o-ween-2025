@@ -29,7 +29,7 @@ namespace DefaultNamespace
                 Vector2Int.FloorToInt(new Vector2(transform.position.x, transform.position.z)) +
                 direction;
             
-            if (!_map.IsTileValid(desiredPosition)) return false;
+            if (!_map.IsTileEmpty(desiredPosition)) return false;
 
             _targetPosition = desiredPosition;
             return true;

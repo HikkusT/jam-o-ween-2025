@@ -4,12 +4,13 @@ public class GameMap : MonoBehaviour
 {
     [SerializeField] private Texture2D _map;
     
-    [Header("Visuals")]
+    [Header("World Elements")]
     [SerializeField] private GameObject _pillarPrefab;
+    [SerializeField] private GameObject _pelletPrefab;
 
     public bool[,] Geometry { get; private set; }
 
-    public bool IsTileValid(Vector2Int position)
+    public bool IsTileEmpty(Vector2Int position)
     {
         if (position.x < 0 || position.x >= _map.width || position.y < 0 || position.y >= _map.height) return false;
         
@@ -42,8 +43,24 @@ public class GameMap : MonoBehaviour
         }
     }
 
+    private void SpawnInitialPellets()
+    {
+        GameObject pelletsParent = new GameObject("Pellets");
+        for (int x = 0; x < _map.width; x++)
+        {
+            for (int y = 0; y < _map.height; y++)
+            {
+                if (IsTileEmpty(new Vector2Int(x, y)))
+                {
+                    Instantiate(_pelletPrefab,  new Vector3(x + 0.5f, 0, y + 0.5f), Quaternion.identity, pelletsParent.transform);
+                }
+            }
+        }
+    }
+
     private void Awake()
     {
         BakeWorld();
+        SpawnInitialPellets();
     }
 }
