@@ -1,8 +1,10 @@
+using PlayerComponents;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private CharacterMotor _motor;
     [SerializeField] private float _bufferTime = 0.2f;
 
@@ -14,6 +16,7 @@ public class CharacterController : MonoBehaviour
     {
         InputSystem.actions.FindAction("Move").performed += StoreInput;
         InputSystem.actions.FindAction("Move").canceled += _ => _inputLastUpdatedAt = Time.time;
+        _motor.Setup(_playerStats);
     }
 
     private void Update()

@@ -1,14 +1,20 @@
 using System;
+using Interfaces;
 using UnityEngine;
 
 public class CharacterMotor : MonoBehaviour
 {
     [SerializeField] private GameMap _map;
-    [SerializeField] private float _speed;
 
     private Vector2Int? _targetPosition;
+    private ISpeedProvider _speedProvider;
     
     public bool IsBusy =>  _targetPosition.HasValue;
+
+    public void Setup(ISpeedProvider speedProvider)
+    {
+        _speedProvider = speedProvider;
+    }
 
     public bool TryMoveTowards(Vector2Int direction)
     {
@@ -33,12 +39,14 @@ public class CharacterMotor : MonoBehaviour
         return true;
     }
 
+    
+    
     private void Update()
     {
         if (_targetPosition == null) return;
 
         Vector3 delta = new Vector3(_targetPosition.Value.x + 0.5f, transform.position.y, _targetPosition.Value.y + 0.5f) - transform.position;
-        Vector3 amountToMove = Vector3.ClampMagnitude(Time.deltaTime * _speed * delta.normalized, delta.magnitude);
+        Vector3 amountToMove = Vector3.ClampMagnitude(Time.deltaTime * _speedProvider.Speed * delta.normalized, delta.magnitude);
         
         transform.position += amountToMove;
         if (amountToMove == delta)
