@@ -9,6 +9,7 @@ public class CharacterMotor : MonoBehaviour
     private Vector2Int? _targetPosition;
     
     public bool IsBusy =>  _targetPosition.HasValue;
+    public Vector2Int CurrentPosition => Vector2Int.FloorToInt(new Vector2(transform.position.x, transform.position.z));
 
     public bool TryMoveTowards(Vector2Int direction)
     {
@@ -20,12 +21,11 @@ public class CharacterMotor : MonoBehaviour
 
         if (direction == Vector2Int.zero)
         {
-            throw new ArgumentNullException("Trying to move with zero direction");
+            Debug.LogError("Trying to move with zero direction");
+            return false;
         }
 
-        Vector2Int desiredPosition =
-            Vector2Int.FloorToInt(new Vector2(transform.position.x, transform.position.z)) +
-            direction;
+        Vector2Int desiredPosition = CurrentPosition + direction;
         
         if (!_map.IsTileEmpty(desiredPosition)) return false;
 

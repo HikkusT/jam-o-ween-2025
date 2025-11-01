@@ -57,6 +57,8 @@ public class GameMap : MonoBehaviour
             }
         }
     }
+    
+    
 
     private void Awake()
     {

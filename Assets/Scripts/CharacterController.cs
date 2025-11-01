@@ -5,6 +5,8 @@ public class CharacterController : MonoBehaviour
 {
     [SerializeField] private CharacterMotor _motor;
     [SerializeField] private float _bufferTime = 0.2f;
+    
+    public CharacterMotor Motor => _motor;
 
     private float _inputLastUpdatedAt = float.MaxValue;
     private Vector2Int? _inputBuffer;
