@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffc8d5ef1f1b4c9c9beb0bf2b6ae9176, type: 3}
-  m_Name: Extra Life
-  m_EditorClassIdentifier: Assembly-CSharp::RogueLike.ModificadorPassivas.AddLife
-  powerUpName: Extra Life
+  m_Script: {fileID: 11500000, guid: ed2321ad5a5244ebade96716d3ad5672, type: 3}
+  m_Name: Endless Frenzy
+  m_EditorClassIdentifier: Assembly-CSharp::RogueLike.PassiveModifiers.ModifyFrenzyDuration
+  powerUpName: 
   powerUpImage: {fileID: 0}
-  powerUpDescription: This power-up grants extra life.
-  livesToAdd: 1
+  powerUpDescription: 
+  durationMultiplier: 1.2

@@ -6,9 +6,9 @@ namespace RogueLike.UniquePassives
 {
     public class GuardianAngelPowerUp : APowerUp
     {
-        public override void Apply(PlayerStats playerStats)
+        public override void Apply(GameObject player)
         {
-            playerStats.AddComponent<GuardianAngelPassive>();
+            player.AddComponent<GuardianAngelPassive>();
         }
     }
 }

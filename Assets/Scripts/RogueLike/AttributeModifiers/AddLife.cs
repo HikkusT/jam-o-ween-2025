@@ -10,15 +10,16 @@ namespace RogueLike.PassiveModifiers
         [Tooltip("How much life does it grants?")]
         [SerializeField] private int livesToAdd = 1;
 
-        public override void Apply(PlayerStats playerStats)
+        public override void Apply(GameObject player)
         {
-            if (playerStats == null)
+            if (player == null)
             {
-                Debug.LogWarning($"PlayerStats not found. Not able to apply {Name}.");
+                Debug.LogWarning($"Player not found. Not able to apply {Name}.");
                 return;
             }
 
-            playerStats.ChangePermanentHealth(livesToAdd);
+            Health health = player.GetComponent<Health>();
+            health.ChangePermanentHealth(livesToAdd);
 
             Debug.Log($"PowerUp applied: {Name}. Lives added: {livesToAdd}");
         }
