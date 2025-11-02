@@ -1,11 +1,21 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using PlayerComponents;
 using UnityEngine;
 
 namespace DefaultNamespace
 {
     public class PacmanVisuals : MonoBehaviour
     {
+        [SerializeField] private Health _health;
+        
+        [Header("Blink")]
+        [SerializeField] private float _visibleTime;
+        [SerializeField] private float _invisibleTime;
+        [SerializeField] private int _amountOfCycles;
+        
         [SerializeField] private float _amountToCloseMouth = 0.5f;
         [SerializeField] private float _timeToOpenMouth = 0.1f;
         [SerializeField] private List<VisualConfig> _full;
@@ -25,6 +35,7 @@ namespace DefaultNamespace
         private void Start()
         {
             _lastUpdateAt = new Vector2(transform.position.x, transform.position.z);
+            _health.OnHitTaken += Blink;
         }
 
         private void Update()
@@ -68,6 +79,25 @@ namespace DefaultNamespace
 
                 _lastUpdateAt = new Vector2(transform.position.x, transform.position.z);
             }
+        }
+
+        CancellationTokenSource _blinkCts = new CancellationTokenSource();
+        private void Blink()
+        {
+            async UniTaskVoid DoBlink(CancellationToken ct)
+            {
+                for (int i = 0; i < _amountOfCycles && !ct.IsCancellationRequested; i++)
+                {
+                    _view.gameObject.SetActive(false);
+                    await UniTask.Delay(TimeSpan.FromSeconds(_invisibleTime), cancellationToken: ct).SuppressCancellationThrow();
+                    _view.gameObject.SetActive(true);
+                    await UniTask.Delay(TimeSpan.FromSeconds(_visibleTime), cancellationToken: ct).SuppressCancellationThrow();
+                }
+            }
+            
+            _blinkCts.Cancel();
+            _blinkCts = new CancellationTokenSource();
+            DoBlink(_blinkCts.Token).Forget();
         }
     }
 

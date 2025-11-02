@@ -241,7 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f39b24066264cb7a8f429e81ef01c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.CharacterMotor
-  _map: {fileID: 0}
   _view: {fileID: 4568637017907110106}
 --- !u!114 &3134345585973232856
 MonoBehaviour:
@@ -268,6 +267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6734954d2be048fc88b84a0e6f7ea185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.PacmanVisuals
+  _health: {fileID: -1877784867425841972}
+  _visibleTime: 0.2
+  _invisibleTime: 0.1
+  _amountOfCycles: 3
   _amountToCloseMouth: 0.5
   _timeToOpenMouth: 0.1
   _full:

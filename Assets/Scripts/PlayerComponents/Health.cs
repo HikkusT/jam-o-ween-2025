@@ -13,6 +13,7 @@ namespace PlayerComponents
         
         public event EventHandler<DeathEventArgs> OnDeath;
         public event Action OnHardDeath;
+        public event Action OnHitTaken;
 
         private void Start()
         {
@@ -47,6 +48,7 @@ namespace PlayerComponents
             if (_isDead) return;
             
             ChangeHealth(-1);
+            OnHitTaken?.Invoke();
             
             int playerHealth = GetPlayerHealth();
             if (playerHealth > 0) {
