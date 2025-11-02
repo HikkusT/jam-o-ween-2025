@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CharacterMotor : MonoBehaviour
 {
-    [SerializeField] private GameMap _map;
     [SerializeField] private Transform _view;
+    
+    private GameMap _map;
 
     private Vector2Int? _targetPosition;
     private ISpeedProvider _speedProvider;
@@ -16,6 +17,7 @@ public class CharacterMotor : MonoBehaviour
     public void Setup(ISpeedProvider speedProvider)
     {
         _speedProvider = speedProvider;
+        _map = FindFirstObjectByType<GameMap>();
     }
 
     public bool TryMoveTowards(Vector2Int direction)

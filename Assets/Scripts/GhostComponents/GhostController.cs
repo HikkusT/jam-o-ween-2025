@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GhostController : MonoBehaviour
 {
-    [SerializeField] private GameMap _map;
     [SerializeField] private CharacterMotor _motor;
     [SerializeField] private float _speed;
     
@@ -13,7 +12,7 @@ public class GhostController : MonoBehaviour
     private void Start()
     {
         _player = FindFirstObjectByType<CharacterController>();
-        _pathFinder = new PathFinder(_map);
+        _pathFinder = new PathFinder(FindFirstObjectByType<GameMap>());
         _motor.Setup(new ConstantSpeed(_speed));
     }
     

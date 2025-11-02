@@ -48,7 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e935114b86044d25be5e8d9f948bf9f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostController
-  _map: {fileID: 0}
   _motor: {fileID: 4417920788909790191}
   _speed: 2
 --- !u!114 &4417920788909790191
@@ -63,7 +62,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f39b24066264cb7a8f429e81ef01c61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMotor
-  _map: {fileID: 0}
   _view: {fileID: 522366958365900184}
 --- !u!135 &-351042275938315799
 SphereCollider:
@@ -129,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 8745798086630941009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
