@@ -17,6 +17,8 @@ public class GhostVisuals : MonoBehaviour
     [SerializeField, ColorUsage(false, true)] private Color _intermediateColor;
     [SerializeField] private float _transitionDuration;
 
+    [SerializeField] private GameObject _destroyParticles;
+
     private float _startingY;
     private Frenzy _frenzy;
 
@@ -67,6 +69,12 @@ public class GhostVisuals : MonoBehaviour
         _frenzy.OnFrenzyEnter -= ChangeVisualsToVulnerable;
         _frenzy.OnFrenzyHardExit -= RevertColor;
         _frenzy.OnFrenzyExiting -= DoBlink;
+    }
+
+    public void PlayParticles()
+    {
+        var particles = Instantiate(_destroyParticles, transform.position + Vector3.up * 0.2f, Quaternion.identity);
+        particles.transform.localScale = 0.5f * Vector3.one;
     }
 
     private void DoBlink() => Blink().Forget();

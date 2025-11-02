@@ -109,6 +109,7 @@ MonoBehaviour:
   _vulnerableColor: {r: 0.07652563, g: 0.06621573, b: 0.4528302, a: 0}
   _intermediateColor: {r: 1.3779136, g: 1.4980392, b: 1.4631641, a: 1}
   _transitionDuration: 0.3
+  _destroyParticles: {fileID: 153256, guid: fe394d041df1a0547990f49cf653249f, type: 3}
 --- !u!1 &8745798086630941009
 GameObject:
   m_ObjectHideFlags: 0
