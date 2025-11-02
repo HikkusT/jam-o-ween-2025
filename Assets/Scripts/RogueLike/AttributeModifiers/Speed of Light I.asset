@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aceb1d5464d42168ca89cb711b9185f, type: 3}
   m_Name: Speed of Light I
   m_EditorClassIdentifier: Assembly-CSharp::RogueLike.PassiveModifiers.ModifySpeed
-  powerUpName: Speed of Light
+  powerUpName: Speed of Light I
   powerUpImage: {fileID: 0}
   powerUpDescription: Increases Speed by 10%
   speedMultiplier: 1.1

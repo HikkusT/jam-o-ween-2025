@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7060593864833472022}
   - component: {fileID: 7096718202609531034}
+  - component: {fileID: 5484241760482346612}
+  - component: {fileID: 421301311840471605}
+  - component: {fileID: 3713470650501018295}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -47,6 +50,48 @@ MonoBehaviour:
   _map: {fileID: 2800000, guid: f537a27f4b8ff4704b165a8f355f752a, type: 3}
   _pillarPrefab: {fileID: 8408753317341867305, guid: 35765f433a6de4feaba5f0afadc569e8, type: 3}
   _pelletPrefab: {fileID: 3414664203276778143, guid: 7b95ac9ded1cd48d584b189beaabcdda, type: 3}
+--- !u!114 &5484241760482346612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984586954837315273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9d6067fe4f4dfe9ccd417aa9cacc01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Gem.GemSpawner
+  _prefab: {fileID: 3414664203276778143, guid: 51c6e0f03ab5e4e5ea5ba1790b61de7f, type: 3}
+  _spawnRate: 1
+--- !u!114 &421301311840471605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984586954837315273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757c349894e4c4db9294825c0c307d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Pellets.PelletSpawner
+  _prefab: {fileID: 3414664203276778143, guid: 7b95ac9ded1cd48d584b189beaabcdda, type: 3}
+  _spawnRate: 10
+--- !u!114 &3713470650501018295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984586954837315273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3efefe4f309b4efb92e37bcb5e020673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ghost.GhostSpawner
+  _prefab: {fileID: 4190100845906073870, guid: d34ec48c994584d9e9db18b97bd65f14, type: 3}
+  _spawnRate: 0.5
 --- !u!1 &4145437739375757885
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ namespace PlayerComponents
         private Frenzy _frenzy;
         
         public event Action OnCollisionWithBalls;
+        public event Action OnCollisionWithGems;
         public event Action OnGhostKilled;
         public event Action OnTakeDamage;
 
@@ -27,17 +28,23 @@ namespace PlayerComponents
                 OnCollisionWithBalls?.Invoke();
                 Destroy(other.gameObject);
                 
+            } else if (other.CompareTag("Gem"))
+            {
+                OnCollisionWithGems?.Invoke();
+                Destroy(other.gameObject);
             }
             
             else if (other.CompareTag("Ghost"))
             {
-                if (!_frenzy.IsActive)
+                if (_frenzy.IsActive)
                 {
-                    OnTakeDamage?.Invoke();
+                    OnGhostKilled?.Invoke();
+                    Destroy(other.gameObject);
+                    return;
                 }
                 
-                OnGhostKilled?.Invoke();
-                Destroy(other.gameObject);
+                OnTakeDamage?.Invoke();
+                
             }
         }
     }

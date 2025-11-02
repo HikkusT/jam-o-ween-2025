@@ -26,9 +26,13 @@ namespace PlayerComponents
         public event Action OnFrenzyEnter;
         public event Action OnFrenzyExiting;
         public event Action OnFrenzyHardExit;
+        
+        private PlayerCollisionHandler _playerCollisionHandler;
 
         private void Start()
         {
+            _playerCollisionHandler = GetComponent<PlayerCollisionHandler>();
+            _playerCollisionHandler.OnCollisionWithGems += ActivateFrenzy;
             OnFrenzyEnter += FrenzyEnter;
             OnFrenzyExiting += FrenzyExiting;
             OnFrenzyHardExit += FrenzyHardExit;
@@ -42,6 +46,7 @@ namespace PlayerComponents
             }
 
             _frenzyTimer -= Time.deltaTime;
+            //Debug.Log($"time left: {_frenzyTimer}");
 
             if (_currentState == FrenzyState.Active && _frenzyTimer <= exitDuration)
             {
@@ -96,6 +101,8 @@ namespace PlayerComponents
         {
             float newDuration = GetFrenzyDuration();
             _frenzyTimer = newDuration;
+            
+            Debug.Log($"Frenzy activated for {_frenzyTimer}");
             
             if (!IsActive)
             {

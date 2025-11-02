@@ -7,8 +7,15 @@ namespace PlayerComponents
     {
         [SerializeField] private int maxHealth = 5;
         private int _currentHealth;
+        private PlayerCollisionHandler _playerCollisionHandler;
         
         public event Action OnDeath;
+
+        private void Start()
+        {
+            _playerCollisionHandler  = GetComponent<PlayerCollisionHandler>();
+            _playerCollisionHandler.OnTakeDamage += TakeDamage;
+        }
 
         private void Update()
         {
@@ -38,7 +45,11 @@ namespace PlayerComponents
         {
             _currentHealth = maxHealth;
         }
-        
+
+        public void TakeDamage()
+        {
+            ChangeHealth(-1);
+        }
         
     }
 }

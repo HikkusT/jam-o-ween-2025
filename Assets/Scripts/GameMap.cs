@@ -57,12 +57,21 @@ public class GameMap : MonoBehaviour
             }
         }
     }
-    
+
+    public int GetMapWidth()
+    {
+        return _map.width;
+    }
+
+    public int GetMapHeight()
+    {
+        return _map.height;
+    }
     
 
     private void Awake()
     {
         BakeWorld();
-        SpawnInitialPellets();
+        //SpawnInitialPellets();
     }
 }
