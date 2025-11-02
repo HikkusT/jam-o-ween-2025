@@ -22,6 +22,7 @@ namespace PlayerComponents
         
         public FrenzyState CurrentState => _currentState;
         public bool IsActive => _currentState != FrenzyState.Inactive;
+        public bool IsInTransition => _currentState == FrenzyState.Exiting;
         
         public event Action OnFrenzyEnter;
         public event Action OnFrenzyExiting;

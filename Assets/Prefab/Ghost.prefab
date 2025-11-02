@@ -106,6 +106,9 @@ MonoBehaviour:
   - {r: 0.03137255, g: 1.309804, b: 0.93333334, a: 1}
   - {r: 1.3779136, g: 1.4980392, b: 1.4631641, a: 1}
   - {r: 1.5283018, g: 0, b: 0.08969834, a: 1}
+  _vulnerableColor: {r: 0.07652563, g: 0.06621573, b: 0.4528302, a: 0}
+  _intermediateColor: {r: 1.3779136, g: 1.4980392, b: 1.4631641, a: 1}
+  _transitionDuration: 0.3
 --- !u!1 &8745798086630941009
 GameObject:
   m_ObjectHideFlags: 0
