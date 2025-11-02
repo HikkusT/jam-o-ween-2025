@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1430512918977723728}
   - component: {fileID: 5649356190956905426}
+  - component: {fileID: 6732350597652658763}
   m_Layer: 0
   m_Name: VFXController
   m_TagString: Untagged
@@ -56,3 +57,21 @@ MonoBehaviour:
   _frenzyIntensity: 0.5
   _frenzyTransitionDuration: 0.2
   _timeTo: 0
+--- !u!114 &6732350597652658763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738121164958341577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2ec670880d407f83f561dfa112448f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DefaultNamespace.FrenzyVisuals
+  _frenzyColor: {r: 2.270603, g: 2.209032, b: 0, a: 1}
+  _normalColor: {r: 0, g: 2.0555644, b: 2.2706032, a: 1}
+  _frenzyMaterial: {fileID: 2100000, guid: c6479527b96cc45338e173519e12c3f6, type: 2}
+  _normalMaterial: {fileID: 2100000, guid: 7a4edd43f95c8435a8707ebe4d7dd368, type: 2}
+  _transitionSpeed: 2
+  _spreadSpeed: 10
