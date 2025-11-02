@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using PlayerComponents;
 using RogueLike.UniquePassives;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace PlayerComponents
     public class PlayerCollisionHandler : MonoBehaviour
     {
         private Frenzy _frenzy;
+        private FrenzyVisuals _frenzyVisuals;
         
         public event Action OnCollisionWithBalls;
         public event Action OnCollisionWithGems;
@@ -19,6 +21,7 @@ namespace PlayerComponents
         private void Start()
         {
             _frenzy = GetComponent<Frenzy>();
+            _frenzyVisuals = FindAnyObjectByType<FrenzyVisuals>();
         }
 
         private void OnTriggerEnter(Collider other)
@@ -31,6 +34,7 @@ namespace PlayerComponents
             } else if (other.CompareTag("Gem"))
             {
                 OnCollisionWithGems?.Invoke();
+                _frenzyVisuals.PlayEffect();
                 Destroy(other.gameObject);
             }
             

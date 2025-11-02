@@ -75,3 +75,4 @@ MonoBehaviour:
   _normalMaterial: {fileID: 2100000, guid: 7a4edd43f95c8435a8707ebe4d7dd368, type: 2}
   _transitionSpeed: 2
   _spreadSpeed: 10
+  _pickupParticles: {fileID: 168694, guid: 9e4fad450282ac64daeb20efbc2b9dfb, type: 3}

@@ -16,6 +16,7 @@ namespace DefaultNamespace
         [SerializeField] private Material _normalMaterial;
         [SerializeField] private float _transitionSpeed;
         [SerializeField] private float _spreadSpeed;
+        [SerializeField] private GameObject _pickupParticles;
 
         private List<Renderer> _lightRenderers;
         
@@ -54,6 +55,13 @@ namespace DefaultNamespace
             _cts.Cancel();
             _cts = new CancellationTokenSource();
             Spread(position, _cts.Token).Forget();
+        }
+        
+        public void PlayEffect()
+        {
+            var player = FindFirstObjectByType<CharacterController>();
+            Vector3 position = player.transform.position;
+            Instantiate(_pickupParticles, position, Quaternion.Euler(-90, 0, 0));
         }
 
         private void StopEffect()
