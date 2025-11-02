@@ -39,6 +39,7 @@ namespace PlayerComponents
                 if (_frenzy.IsActive)
                 {
                     OnGhostKilled?.Invoke();
+                    other.GetComponent<GhostVisuals>().PlayParticles();
                     Destroy(other.gameObject);
                     return;
                 }
