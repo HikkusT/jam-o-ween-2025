@@ -50,6 +50,8 @@ namespace PlayerComponents
         
         public void ChangeHealth(int amount)
         {
+            if (amount <= 0 && _isInvincible) return;
+            
             _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
             OnHealthChanged?.Invoke();
         }
@@ -67,7 +69,7 @@ namespace PlayerComponents
 
         public void TakeDamage()
         {
-            if (_isDead) return;
+            if (_isDead || _isInvincible) return;
             
             ChangeHealth(-1);
             OnHitTaken?.Invoke();
