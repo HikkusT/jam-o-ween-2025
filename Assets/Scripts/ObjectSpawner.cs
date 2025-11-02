@@ -2,13 +2,14 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class ObjectSpawner : MonoBehaviour
+public abstract class ObjectSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _prefab;
     [SerializeField] private float _spawnRate = 10f;
     private float _nextSpawn;
     
     public int Intensity => _rogueLikeManager.GetIntensity();
+    public float SpawnRate => _spawnRate;
 
     private GameMap _gameMap;
     private RogueLikeManager _rogueLikeManager;
@@ -23,6 +24,8 @@ public class ObjectSpawner : MonoBehaviour
         {
             SpawnObject();
         }
+
+        _nextSpawn = GetSpawnTime();
     }
 
     private void Update()
@@ -36,10 +39,7 @@ public class ObjectSpawner : MonoBehaviour
         _nextSpawn -= Time.deltaTime;
     }
 
-    public float GetSpawnTime()
-    {
-        return 1 / _spawnRate * (Intensity * 0.35f);
-    }
+    public abstract float GetSpawnTime();
 
     public void SpawnObject()
     {

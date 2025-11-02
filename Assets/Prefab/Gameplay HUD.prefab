@@ -335,7 +335,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e1ae00afad449a6b7fa3b1e20c0ebd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UI.LifeCount
-  heartPrefab: {fileID: 7924319575155289523, guid: b107d7758b54a493495bf060bd488cd9, type: 3}
+  fullHeartPrefab: {fileID: 7924319575155289523, guid: b107d7758b54a493495bf060bd488cd9, type: 3}
+  emptyHeartPrefab: {fileID: 7924319575155289523, guid: 3885240e8230e4b2482c56399f0e8eb3, type: 3}
 --- !u!114 &8591427110911803546
 MonoBehaviour:
   m_ObjectHideFlags: 0

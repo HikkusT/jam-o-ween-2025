@@ -8,6 +8,8 @@ namespace PlayerComponents
         [SerializeField] private int maxHealth = 5;
         private int _currentHealth;
         private bool _isDead = false;
+        private bool _isInvincible;
+        private float invincibilityTimer = 0f;
         
         private PlayerCollisionHandler _playerCollisionHandler;
         
@@ -18,15 +20,32 @@ namespace PlayerComponents
 
         private void Start()
         {
+            _isInvincible = false;
             _currentHealth = maxHealth;
             _playerCollisionHandler  = GetComponent<PlayerCollisionHandler>();
             _playerCollisionHandler.OnTakeDamage += TakeDamage;
             OnHealthChanged?.Invoke();
         }
-        
-        public int GetPlayerHealth()
+
+        private void Update()
+        {
+            if (_isInvincible)
+            {
+                invincibilityTimer  -= Time.deltaTime;
+                if (invincibilityTimer <= 0)
+                {
+                    _isInvincible = false;
+                }
+            }
+        }
+        public int GetPlayerCurrentHealth()
         {
             return _currentHealth;
+        }
+
+        public int GetPlayerMaxHealth()
+        {
+            return maxHealth;
         }
         
         public void ChangeHealth(int amount)
@@ -54,7 +73,7 @@ namespace PlayerComponents
             OnHitTaken?.Invoke();
             OnHealthChanged?.Invoke();
             
-            int playerHealth = GetPlayerHealth();
+            int playerHealth = GetPlayerCurrentHealth();
             if (playerHealth > 0) {
                 Debug.Log("TAKE DAMAGE");
                 Debug.Log("Health: " + playerHealth);
@@ -86,6 +105,12 @@ namespace PlayerComponents
                 // Put your REAL death logic here (e.g., play animation, show UI)
                 gameObject.SetActive(false); // Example: just disable the player
             }
+        }
+
+        public void SetInvincibility(float time)
+        {
+            _isInvincible = true;
+            invincibilityTimer = time;
         }
         
     }
