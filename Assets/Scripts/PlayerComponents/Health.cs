@@ -24,6 +24,7 @@ namespace PlayerComponents
             _currentHealth = maxHealth;
             _playerCollisionHandler  = GetComponent<PlayerCollisionHandler>();
             _playerCollisionHandler.OnTakeDamage += TakeDamage;
+            _playerCollisionHandler.OnTakeDamage += LuizinhosGrace;
             OnHealthChanged?.Invoke();
         }
 
@@ -113,6 +114,11 @@ namespace PlayerComponents
         {
             _isInvincible = true;
             invincibilityTimer = time;
+        }
+
+        public void LuizinhosGrace()
+        {
+            SetInvincibility(0.8f);
         }
         
     }
