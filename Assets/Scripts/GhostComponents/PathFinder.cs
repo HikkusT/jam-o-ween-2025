@@ -78,7 +78,7 @@ public class PathFinder
             _reversePath.Add(step);
             step = _visitedFrom[step];
         }
-        for (int i = _reversePath.Count - 2; i >= 0; i--)
+        for (int i = _reversePath.Count - 1; i >= 0; i--)
         {
             _path.Enqueue(_reversePath[i]);
         }
