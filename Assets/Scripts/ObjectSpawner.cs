@@ -7,12 +7,17 @@ public class ObjectSpawner : MonoBehaviour
     [SerializeField] private GameObject _prefab;
     [SerializeField] private float _spawnRate = 10f;
     private float _nextSpawn;
+    
+    public int Intensity => _rogueLikeManager.GetIntensity();
 
     private GameMap _gameMap;
+    private RogueLikeManager _rogueLikeManager;
 
     private void Start()
     {
         _gameMap = FindFirstObjectByType<GameMap>();
+        _rogueLikeManager = FindFirstObjectByType<RogueLikeManager>();
+        
         int numSpawns = (int)(10 * _spawnRate);
         for (; numSpawns >= 0; numSpawns--)
         {
@@ -33,7 +38,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public float GetSpawnTime()
     {
-        return 1 / _spawnRate;
+        return 1 / _spawnRate * (Intensity * 0.35f);
     }
 
     public void SpawnObject()
