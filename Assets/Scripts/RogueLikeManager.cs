@@ -1,11 +1,19 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using PlayerComponents;
+using RogueLike;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RogueLikeManager: MonoBehaviour
 {
         [SerializeField] private int scoreGetFromKillingGhosts = 3;
         [SerializeField] private GameObject player;
+
+        [SerializeField] private List<APowerUp> _powerUps;
+        [SerializeField] private CardSelectionScreen _cardSelectionScreen;
+        
         private PlayerCollisionHandler _playerCollisionHandler;
         private int _score;
         private int _intensity; // intensity of the gameplay
@@ -34,6 +42,7 @@ public class RogueLikeManager: MonoBehaviour
                 if (_score >= TargetScore)
                 {
                         OnLevelUp?.Invoke();
+                        _cardSelectionScreen.Show(_powerUps.OrderBy(_ => Random.value).Take(3).Cast<IPowerUp>().ToList());
                 }
                         
         }
