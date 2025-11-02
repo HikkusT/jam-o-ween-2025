@@ -13,6 +13,8 @@ public class CharacterController : MonoBehaviour
     private float _inputLastUpdatedAt = float.MaxValue;
     private Vector2Int? _inputBuffer;
     private Vector2Int? _currentDirection;
+    
+    public Vector2Int? CurrentDirection => _currentDirection;
 
     private void Start()
     {

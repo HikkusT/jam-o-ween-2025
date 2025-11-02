@@ -16,7 +16,7 @@ public class GhostVisuals : MonoBehaviour
     private void Start()
     {
         _startingY = _view.localPosition.y;
-        Color color = _availableColors[Random.Range(0, _availableColors.Count)];
+        Color color = _availableColors[(int) GetComponent<GhostController>().ChasePattern];
         _mainRenderer.material.SetColor("_BaseColor", color);
         _mainRenderer.material.SetColor("_1st_ShadeColor", color * 0.8f);
         _mainRenderer.material.SetColor("_Emissive_Color", new Color(color.r, color.g, color.b, 1.5f));
