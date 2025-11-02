@@ -52,6 +52,11 @@ public class RogueLikeManager: MonoBehaviour
                 _score += scoreGetFromKillingGhosts;
         }
 
+        public int GetScore()
+        {
+                return _score;
+        }
+        
         public int GetIntensity()
         {
                 if (_intensity <= 0)

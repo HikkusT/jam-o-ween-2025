@@ -12,6 +12,7 @@ namespace PlayerComponents
         private PlayerCollisionHandler _playerCollisionHandler;
         
         public event EventHandler<DeathEventArgs> OnDeath;
+        public event Action OnHealthChanged;
         public event Action OnHardDeath;
         public event Action OnHitTaken;
 
@@ -20,6 +21,7 @@ namespace PlayerComponents
             _currentHealth = maxHealth;
             _playerCollisionHandler  = GetComponent<PlayerCollisionHandler>();
             _playerCollisionHandler.OnTakeDamage += TakeDamage;
+            OnHealthChanged?.Invoke();
         }
         
         public int GetPlayerHealth()
@@ -30,6 +32,7 @@ namespace PlayerComponents
         public void ChangeHealth(int amount)
         {
             _currentHealth = Mathf.Clamp(_currentHealth + amount, 0, maxHealth);
+            OnHealthChanged?.Invoke();
         }
 
         public void ChangePermanentHealth(int amount)
@@ -40,7 +43,7 @@ namespace PlayerComponents
 
         public void RestoreFullLife()
         {
-            _currentHealth = maxHealth;
+            ChangeHealth(maxHealth);
         }
 
         public void TakeDamage()
@@ -49,6 +52,7 @@ namespace PlayerComponents
             
             ChangeHealth(-1);
             OnHitTaken?.Invoke();
+            OnHealthChanged?.Invoke();
             
             int playerHealth = GetPlayerHealth();
             if (playerHealth > 0) {
