@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Invincible
   m_EditorClassIdentifier: Assembly-CSharp::RogueLike.InstantEffects.Invincible
   powerUpName: Invincible
-  powerUpImage: {fileID: 0}
+  powerUpImage: {fileID: 21300000, guid: 9c78314495cfc4d1daf8b3deaa6b7ea5, type: 3}
   powerUpDescription: Grants Invincibility for 4 seconds.
   InvincibilityTime: 4

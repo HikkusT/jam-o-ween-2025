@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GuardianAngelPowerUp
   m_EditorClassIdentifier: Assembly-CSharp::RogueLike.UniquePassives.GuardianAngelPowerUp
   powerUpName: Guardian Angel
-  powerUpImage: {fileID: 0}
+  powerUpImage: {fileID: 21300000, guid: 80d7485ad848342a2aff1ddfc8886f55, type: 3}
   powerUpDescription: If you would die, destroy this power-up instead and restore
     your full health.

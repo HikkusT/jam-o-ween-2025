@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: KillAllGhosts
   m_EditorClassIdentifier: Assembly-CSharp::RogueLike.InstantEffects.KillAllGhosts
   powerUpName: (Not a) Ghost Town
-  powerUpImage: {fileID: 0}
+  powerUpImage: {fileID: 21300000, guid: 351c89651d3fc47e19da9b0e08bbb604, type: 3}
   powerUpDescription: Kill all Ghosts in the map.

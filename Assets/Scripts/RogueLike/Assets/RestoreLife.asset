@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: RestoreLife
   m_EditorClassIdentifier: Assembly-CSharp::RogueLike.InstantEffects.RestoreLife
   powerUpName: Health Insurence
-  powerUpImage: {fileID: 0}
+  powerUpImage: {fileID: 21300000, guid: b42e216d768284bd5a3bf109a4e92c07, type: 3}
   powerUpDescription: Restore maximum life, but you lose one permanent life.
