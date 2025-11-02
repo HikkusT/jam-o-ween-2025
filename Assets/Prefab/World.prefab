@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Gem.GemSpawner
   _prefab: {fileID: 3414664203276778143, guid: 51c6e0f03ab5e4e5ea5ba1790b61de7f, type: 3}
-  _spawnRate: 1
+  _spawnRate: 0.1
 --- !u!114 &421301311840471605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pellets.PelletSpawner
   _prefab: {fileID: 3414664203276778143, guid: 7b95ac9ded1cd48d584b189beaabcdda, type: 3}
-  _spawnRate: 10
+  _spawnRate: 5
 --- !u!114 &3713470650501018295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8343601137794756219}
+  - component: {fileID: 7985420311526151797}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -125,6 +126,20 @@ Transform:
   - {fileID: 7060593864833472022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7985420311526151797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145437739375757885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd81907d261f4093a291c66056bf3963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RogueLikeManager
+  scoreGetFromKillingGhosts: 3
+  player: {fileID: 0}
 --- !u!1 &5233755261213597669
 GameObject:
   m_ObjectHideFlags: 0
