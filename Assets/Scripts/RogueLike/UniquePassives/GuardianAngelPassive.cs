@@ -13,10 +13,22 @@ namespace RogueLike.UniquePassives
             _health.OnDeath += AvoidDeath;
         }
 
-        private void AvoidDeath()
+        private void AvoidDeath(object sender, DeathEventArgs args)
         {
+            if (args.IsSaved) return;
+            
+            args.IsSaved = true;
+            
             _health.RestoreFullLife();
             Destroy(this);
+        }
+        
+        private void OnDestroy()
+        {
+            if (_health != null)
+            {
+                _health.OnDeath -= AvoidDeath;
+            }
         }
     }
 }
