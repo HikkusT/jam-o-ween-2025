@@ -246,6 +246,24 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &441274464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4145437739375757885, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
+  m_PrefabInstance: {fileID: 7471537966882159729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &441274466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441274464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd81907d261f4093a291c66056bf3963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RogueLikeManager
+  player: {fileID: 1168594917}
 --- !u!114 &509688623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7096718202609531034, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
@@ -306,6 +324,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1168594917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5248121404389421364, guid: 8bc6b286376c14a8f83c014259304a81, type: 3}
+  m_PrefabInstance: {fileID: 8272210824919244931}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1888063696612613704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -379,9 +402,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 421301311840471605, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
+      propertyPath: _spawnRate
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4145437739375757885, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
       propertyPath: m_Name
       value: World
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484241760482346612, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
+      propertyPath: _spawnRate
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8343601137794756219, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -426,7 +457,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4145437739375757885, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 441274466}
   m_SourcePrefab: {fileID: 100100000, guid: 6b1f37d21406d46b5922e3eb2c14d78c, type: 3}
 --- !u!1001 &8272210824919244931
 PrefabInstance:

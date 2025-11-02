@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ghost
   - Ball
+  - Gem
+  - Missile
+  - Target
   layers:
   - Default
   - TransparentFX

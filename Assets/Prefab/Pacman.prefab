@@ -185,8 +185,10 @@ GameObject:
   - component: {fileID: 8477560982743539734}
   - component: {fileID: 496224570201101470}
   - component: {fileID: 5511498817950084675}
+  - component: {fileID: -1877784867425841972}
   - component: {fileID: 1443313643856968172}
   - component: {fileID: 2168022643851107080}
+  - component: {fileID: -4460286026487076606}
   m_Layer: 0
   m_Name: Pacman
   m_TagString: Player
@@ -306,6 +308,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerComponents.Frenzy
   duration: 7.5
   exitDuration: 1.5
+--- !u!114 &-1877784867425841972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248121404389421364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebbf63d723c4b918bde025d49555eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerComponents.Health
+  maxHealth: 5
 --- !u!135 &1443313643856968172
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -354,6 +369,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4460286026487076606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248121404389421364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35247606079f4100be13118cffbf916d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RogueLike.UniquePassives.GuardianAngelPassive
 --- !u!1 &7654861338974248296
 GameObject:
   m_ObjectHideFlags: 0
