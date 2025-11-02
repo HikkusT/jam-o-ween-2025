@@ -97,8 +97,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GhostVisuals
   _view: {fileID: 522366958365900184}
+  _mainRenderer: {fileID: 496716011278872980}
   _amplitude: 0.2
   _frequency: 3
+  _availableColors:
+  - {r: 1.9372549, g: 0.72156864, b: 0.023529412, a: 1}
+  - {r: 1.7019608, g: 0.023529412, b: 0.8156863, a: 1}
+  - {r: 1.0196079, g: 0.015686275, b: 0.7764706, a: 1}
+  - {r: 0.03137255, g: 1.309804, b: 0.93333334, a: 1}
+  - {r: 1.3779136, g: 1.4980392, b: 1.4631641, a: 1}
+  - {r: 1.5283018, g: 0, b: 0.08969834, a: 1}
 --- !u!1 &8745798086630941009
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +304,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 131e83091b5bd4cf593feba4b4d6f0f7, type: 3}
+--- !u!23 &496716011278872980 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6317578925029434746, guid: 131e83091b5bd4cf593feba4b4d6f0f7, type: 3}
+  m_PrefabInstance: {fileID: 5856997406022374638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6251705908341273349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 131e83091b5bd4cf593feba4b4d6f0f7, type: 3}
