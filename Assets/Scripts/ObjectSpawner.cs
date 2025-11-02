@@ -1,4 +1,5 @@
 using System;
+using Ghost;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,11 +14,13 @@ public abstract class ObjectSpawner : MonoBehaviour
 
     private GameMap _gameMap;
     private RogueLikeManager _rogueLikeManager;
+    private CharacterController _player;
 
     private void Start()
     {
         _gameMap = FindFirstObjectByType<GameMap>();
         _rogueLikeManager = FindFirstObjectByType<RogueLikeManager>();
+        _player = FindFirstObjectByType<CharacterController>();
         
         int numSpawns = (int)(10 * _spawnRate);
         for (; numSpawns >= 0; numSpawns--)
@@ -50,7 +53,7 @@ public abstract class ObjectSpawner : MonoBehaviour
             int z = Random.Range(0, _gameMap.GetMapHeight());
             Vector2Int gridPosition = new(x, z);
 
-            if (_gameMap.IsTileEmpty(gridPosition))
+            if (_gameMap.IsTileEmpty(gridPosition) && (this is not GhostSpawner || Vector2.Distance(gridPosition, _player.Motor.CurrentPosition) > 4))
             {
                 Vector3 worldPosition = new Vector3(x + 0.5f, 0, z + 0.5f);
 
