@@ -143,7 +143,13 @@ MonoBehaviour:
   _powerUps:
   - {fileID: 11400000, guid: 7888479c9977b41239fc270bb0fb79ca, type: 2}
   - {fileID: 11400000, guid: 0efcaa70c1cb74a8ea052b143b4f8c7e, type: 2}
+  - {fileID: 11400000, guid: 5c709e3472a584f218153967648e8b4d, type: 2}
+  - {fileID: 11400000, guid: 8266bb0d804054436be82732a6ccb4f9, type: 2}
+  - {fileID: 11400000, guid: e1c56922b5c5c4b8a83b07f0ecef8260, type: 2}
+  - {fileID: 11400000, guid: 5f609f91ee4c84d0887a3b869ce3f2fd, type: 2}
   - {fileID: 11400000, guid: 357564ee30ac045b9b9cf28b1f25b535, type: 2}
+  - {fileID: 11400000, guid: 22651ba6d59604e8cb419b49a23e720c, type: 2}
+  - {fileID: 11400000, guid: 5cdd68020663f41b6a88defa5ef743a1, type: 2}
   _cardSelectionScreen: {fileID: 0}
 --- !u!1 &5233755261213597669
 GameObject:

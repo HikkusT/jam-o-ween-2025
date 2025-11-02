@@ -18,8 +18,7 @@ public class RogueLikeManager: MonoBehaviour
         private int _score;
         private int _intensity; // intensity of the gameplay
 
-        private int TargetScore => (int)(25f * Mathf.Pow(_intensity, 1.2f));
-
+        private int TargetScore => (int)(25f * Mathf.Pow(_intensity, 1.8f));
         private event Action OnLevelUp;
         
         private void Start()
