@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffc8d5ef1f1b4c9c9beb0bf2b6ae9176, type: 3}
-  m_Name: Extra Life I
-  m_EditorClassIdentifier: Assembly-CSharp::RogueLike.ModificadorPassivas.AddLife
-  powerUpName: Extra Life I
+  m_Script: {fileID: 11500000, guid: 96eb8eee3d1040a3959c666fe1757637, type: 3}
+  m_Name: KillAllGhosts
+  m_EditorClassIdentifier: Assembly-CSharp::RogueLike.InstantEffects.KillAllGhosts
+  powerUpName: (Not a) Ghost Town
   powerUpImage: {fileID: 0}
-  powerUpDescription: Grants an extra life.
-  livesToAdd: 1
+  powerUpDescription: Kill all Ghosts in the map.

@@ -9,8 +9,8 @@ namespace RogueLike.InstantEffects
         public override void Apply(GameObject player)
         {
             Health health = player.GetComponent<Health>();
+            health.ChangePermanentHealth(-1);
             health.RestoreFullLife();
-            Destroy(this);
         }
     }
 }

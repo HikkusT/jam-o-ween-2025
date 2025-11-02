@@ -10,7 +10,6 @@ namespace RogueLike.InstantEffects
         {
             Frenzy frenzy = player.GetComponent<Frenzy>();
             frenzy.ActivateFrenzy();
-            Destroy(this);
         }
     }
 }

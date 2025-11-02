@@ -7,7 +7,7 @@ namespace RogueLike.UniquePassives
     {
         private Frenzy _frenzy;
         private PlayerCollisionHandler _playerCollisionHandler;
-        private float _extraTime = 2f;
+        [SerializeField] private float _extraTime = 2f;
         
         private void Start()
         {
