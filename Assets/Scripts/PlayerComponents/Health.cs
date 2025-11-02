@@ -102,11 +102,9 @@ namespace PlayerComponents
             {
                 // No one saved the player. Proceed with death.
                 _isDead = true;
+                Time.timeScale = 0f;
                 OnHardDeath?.Invoke();
                 Debug.Log("DEAD");
-                
-                // Put your REAL death logic here (e.g., play animation, show UI)
-                gameObject.SetActive(false); // Example: just disable the player
             }
         }
 
