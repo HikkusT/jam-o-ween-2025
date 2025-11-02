@@ -1,7 +1,5 @@
 using System;
 using DefaultNamespace;
-using PlayerComponents;
-using RogueLike.UniquePassives;
 using UnityEngine;
 
 namespace PlayerComponents
@@ -10,6 +8,9 @@ namespace PlayerComponents
     [RequireComponent(typeof(Collider))]
     public class PlayerCollisionHandler : MonoBehaviour
     {
+        [SerializeField] private AudioClip _pelletSound;
+        [SerializeField] private AudioSource _source;
+        
         private Frenzy _frenzy;
         private FrenzyVisuals _frenzyVisuals;
         
@@ -29,6 +30,8 @@ namespace PlayerComponents
             if (other.CompareTag("Ball"))
             {
                 OnCollisionWithBalls?.Invoke();
+                _source.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+                // _source.PlayOneShot(_pelletSound, 0.2f);
                 Destroy(other.gameObject);
                 
             } else if (other.CompareTag("Gem"))

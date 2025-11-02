@@ -18,6 +18,7 @@ namespace UI
             _health = FindFirstObjectByType<Health>();
 
             _health.OnHealthChanged += UpdateHeartDisplay;
+            UpdateHeartDisplay();
         }
 
         private void OnDestroy()

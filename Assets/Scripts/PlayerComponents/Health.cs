@@ -18,7 +18,7 @@ namespace PlayerComponents
         public event Action OnHardDeath;
         public event Action OnHitTaken;
 
-        private void Start()
+        private void Awake()
         {
             _isInvincible = false;
             _currentHealth = maxHealth;

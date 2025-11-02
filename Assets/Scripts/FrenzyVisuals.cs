@@ -40,7 +40,7 @@ namespace DefaultNamespace
                 while (index < orderedRenderes.Count())
                 {
                     while (Vector3.Distance(orderedRenderes[index].transform.position, origin) <
-                           (Time.time - startedAt) * _spreadSpeed)
+                           (Time.time - startedAt) * _spreadSpeed && index < orderedRenderes.Count())
                     {
                         orderedRenderes[index].material.SetColor("_EmissionColor", _frenzyColor);
                         index++;
