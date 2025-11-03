@@ -18,7 +18,7 @@ namespace RogueLike.UniquePassives
 
         public void OnGhostKilled()
         {
-            float extraTime = Mathf.Clamp(_baseExtraTime / 1 + _frenzy.KillCount, 0, _baseExtraTime);
+            float extraTime = Mathf.Clamp(_baseExtraTime / (1 + _frenzy.KillCount), 0, _baseExtraTime);
             _frenzy.IncreaseFrenzyTimer(extraTime);
         }
 
