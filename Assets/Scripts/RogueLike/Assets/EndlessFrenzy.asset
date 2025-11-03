@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RogueLike.PassiveModifiers.ModifyFrenzyDuration
   powerUpName: Endless Frenzy
   powerUpImage: {fileID: 21300000, guid: c246ac244099b48c59a6dfc81c380372, type: 3}
-  powerUpDescription: Increases Frenzy duration by 6%
-  durationMultiplier: 1.06
+  powerUpDescription: Increases Frenzy duration by 7%
+  durationMultiplier: 1.07

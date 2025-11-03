@@ -16,6 +16,9 @@ namespace PlayerComponents
         [SerializeField] private float duration = 7.5f;
         [SerializeField] private float exitDuration = 1.5f;
         private readonly List<float> _frenzyModifiers = new();
+        private int killCount = 0;
+        
+        public int KillCount => killCount;
         
         private FrenzyState _currentState = FrenzyState.Inactive;
         private float _frenzyTimer;
@@ -34,6 +37,7 @@ namespace PlayerComponents
         {
             _playerCollisionHandler = GetComponent<PlayerCollisionHandler>();
             _playerCollisionHandler.OnCollisionWithGems += ActivateFrenzy;
+            _playerCollisionHandler.OnGhostKilled += KillStreak;
             OnFrenzyEnter += FrenzyEnter;
             OnFrenzyExiting += FrenzyExiting;
             OnFrenzyHardExit += FrenzyHardExit;
@@ -107,6 +111,7 @@ namespace PlayerComponents
             
             if (!IsActive)
             {
+                killCount = 0;
                 OnFrenzyEnter?.Invoke();
             }
             else
@@ -115,9 +120,15 @@ namespace PlayerComponents
             }
         }
 
+        private void KillStreak()
+        {
+            killCount++;
+        }
+
         public void IncreaseFrenzyTimer(float amount)
         {
-            _frenzyTimer += amount;
+            _frenzyTimer = Mathf.Clamp(_frenzyTimer + amount, 0, GetFrenzyDuration());
+
         }
     }
 }

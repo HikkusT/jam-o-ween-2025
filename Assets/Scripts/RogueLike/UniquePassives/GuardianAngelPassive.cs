@@ -19,7 +19,7 @@ namespace RogueLike.UniquePassives
             
             args.IsSaved = true;
             
-            _health.RestoreFullLife();
+            _health.ChangeHealth(1);
             Destroy(this);
         }
         

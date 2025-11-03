@@ -7,7 +7,7 @@ namespace RogueLike.UniquePassives
     {
         private Frenzy _frenzy;
         private PlayerCollisionHandler _playerCollisionHandler;
-        [SerializeField] private float _extraTime = 2f;
+        [SerializeField] private float _baseExtraTime = 0.4f;
         
         private void Start()
         {
@@ -18,7 +18,8 @@ namespace RogueLike.UniquePassives
 
         public void OnGhostKilled()
         {
-            _frenzy.IncreaseFrenzyTimer(_extraTime);
+            float extraTime = Mathf.Clamp(_baseExtraTime / 1 + _frenzy.KillCount, 0, _baseExtraTime);
+            _frenzy.IncreaseFrenzyTimer(extraTime);
         }
 
     }
